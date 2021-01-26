@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace BookListMVC.Migrations
+namespace BookListMVC.Data.Migrations
 {
-    public partial class AddBookToDb : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,11 +10,11 @@ namespace BookListMVC.Migrations
                 name: "Books",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    Author = table.Column<string>(nullable: true),
-                    ISBN = table.Column<string>(nullable: true)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Author = table.Column<string>(type: "TEXT", nullable: true),
+                    ISBN = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
